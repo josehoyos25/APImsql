@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+   <div class="container">
+
+    <div class="table">
+        <h1>DOCUMENTACIÓN DE LA API</h1>
+        <h2>Registrar usuario</h2>
+        <table class="tableRegister">
+            <tr class="filas">
+                <td class="title">Número: </td>
+                <td class="td-right">1</td>
+            </tr>
+            <tr>
+                <td class="title">Nombre endpoint: </td>
+                <td class="td-right">Registrar Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">URI: </td>
+                <td class="td-right">localhost:3000/usuario/registrar</td>
+            </tr>
+            <tr>
+                <td class="title">Descripción: </td>
+                <td class="td-right">Endpoint para registrar un usuario en la base de datos</td>
+            </tr>
+            <tr>
+                <td class="title">Verbo HTTP: </td>
+                <td class="td-right">POST</td>
+            </tr>
+            <tr>
+                <td class="title">Header: </td>
+                <td class="td-right">Content-Type:  JSON</td>
+            </tr>
+            <tr>
+                <td class="title">Usuarios: </td>
+                <td class="td-right">Administrador, Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">Request JSON: </td>
+                <td class="td-right">
+                    { <br>
+                        "idusuario": 1,<br>
+                        "nombres": "Frand", <br>
+                         "direccion": "Saladoblanco",<br>
+                         "telefono": "32134",<br>
+                         "correo": "frandches@gmail.com",<br>
+                         "rol": "administrador",<br>
+                         "password": "frandfrand"<br>
+                       }
+                </td>
+            </tr>
+            <tr>
+                <td class="title">Response: </td>
+                <td class="td-right">
+                   <li>
+                    <span>Correcto:</span> <br> <br>
+                    status: 200 <br><br>
+                   Body: <br>
+                    { 
+                       "message": "Se registró con éxito el usuario"
+                     }  <br> <br>
+                   </li>
+                      <li> <span>Incorrecto:</span> <br><br>
+                       status: 403 <br><br>
+                       Body: <br>
+                       {
+                        "message": "Usuario no registrado"
+                       }
+                      </li>
+                       
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="table">
+        <h2>Listar usuarios</h2>
+        <table class="tableRegister">
+            <tr class="filas">
+                <td class="title">Número: </td>
+                <td class="td-right">2</td>
+            </tr>
+            <tr>
+                <td class="title">Nombre endpoint: </td>
+                <td class="td-right">Listar Usuarios</td>
+            </tr>
+            <tr>
+                <td class="title">URI: </td>
+                <td class="td-right">localhost:3000/usuario/listar</td>
+            </tr>
+            <tr>
+                <td class="title">Descripción: </td>
+                <td class="td-right">Endpoint para listar los usuarios de la base de datos</td>
+            </tr>
+            <tr>
+                <td class="title">Verbo HTTP: </td>
+                <td class="td-right">GET</td>
+            </tr>
+            <tr>
+                <td class="title">Header: </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="title">Usuarios: </td>
+                <td class="td-right">Administrador, Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">Request JSON: </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="title">Response: </td>
+                <td class="td-right">
+                   <li>
+                    <span>Correcto:</span> <br> <br>
+                    status: 200 <br><br>
+                   Body: <br>
+                   { <br>
+                    "idusuario": 1,<br>
+                    "nombres": "Frand", <br>
+                     "direccion": "Saladoblanco",<br>
+                     "telefono": "32134",<br>
+                     "correo": "frandches@gmail.com",<br>
+                     "rol": "administrador",<br>
+                     "password": "frandfrand"<br>
+                   }  <br> <br>
+                   </li>
+                      <li> <span>Incorrecto:</span> <br><br>
+                       status: 404 <br><br>
+                       Body: <br>
+                       {
+                        "message": "No se encontraron usuarios"
+                       }
+                      </li>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="table">
+        <h2>Buscar usuario</h2>
+        <table class="tableRegister">
+            <tr class="filas">
+                <td class="title">Número: </td>
+                <td class="td-right">3</td>
+            </tr>
+            <tr>
+                <td class="title">Nombre endpoint: </td>
+                <td class="td-right">Buscar Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">URI: </td>
+                <td class="td-right">localhost:3000/usuario/consultar/:id</td>
+            </tr>
+            <tr>
+                <td class="title">Descripción: </td>
+                <td class="td-right">Endpoint para buscar un usuario en la base de datos por su ID</td>
+            </tr>
+            <tr>
+                <td class="title">Verbo HTTP: </td>
+                <td class="td-right">GET</td>
+            </tr>
+            <tr>
+                <td class="title">Header: </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="title">Usuarios: </td>
+                <td class="td-right">Administrador, Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">Request JSON: </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="title">Response: </td>
+                <td class="td-right">
+                   <li>
+                    <span>Correcto:</span> <br> <br>
+                    status: 200 <br><br>
+                   Body: <br>
+                   { <br>
+                    "idusuario": 1,<br>
+                    "nombres": "Frand", <br>
+                     "direccion": "Saladoblanco",<br>
+                     "telefono": "32134",<br>
+                     "correo": "frandches@gmail.com",<br>
+                     "rol": "administrador",<br>
+                     "password": "frandfrand"<br>
+                   }  <br> <br>
+                   </li>
+                      <li> <span>Incorrecto:</span> <br><br>
+                       status: 404 <br><br>
+                       Body: <br>
+                       {
+                        "message": "usuario no encontrado"
+                       }
+                      </li>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="table">
+        <h2>Actualizar usuario</h2>
+        <table class="tableRegister">
+            <tr class="filas">
+                <td class="title">Número: </td>
+                <td class="td-right">4</td>
+            </tr>
+            <tr>
+                <td class="title">Nombre endpoint: </td>
+                <td class="td-right">Actualizar Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">URI: </td>
+                <td class="td-right">localhost:3000/usuario/actualizar/:id</td>
+            </tr>
+            <tr>
+                <td class="title">Descripción: </td>
+                <td class="td-right">Endpoint para actualizar datos de un usuario en la base de datos</td>
+            </tr>
+            <tr>
+                <td class="title">Verbo HTTP: </td>
+                <td class="td-right">PUT</td>
+            </tr>
+            <tr>
+                <td class="title">Header: </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="title">Usuarios: </td>
+                <td class="td-right">Administrador, Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">Request JSON: </td>
+                <td class="td-right">
+                    { <br>
+                        "nombres": "Frand", <br>
+                         "direccion": "Saladoblanco",<br>
+                         "telefono": "32134",<br>
+                         "correo": "frandches@gmail.com",<br>
+                         "rol": "administrador",<br>
+                         "password": "frandfrand"<br>
+                       } 
+                </td>
+            </tr>
+            <tr>
+                <td class="title">Response: </td>
+                <td class="td-right">
+                   <li>
+                    <span>Correcto:</span> <br> <br>
+                    status: 200 <br><br>
+                   Body: <br>
+                   {<br>
+                    "message": "Usuario actualizado con éxito"<br>
+                    }
+                    <br> <br>
+                   </li>
+                      <li> <span>Incorrecto:</span> <br><br>
+                       status: 404 <br><br>
+                       Body: <br>
+                       {
+                        "message": "usuario no actualizado"
+                       }
+                      </li>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="table">
+        <h2>Eliminar usuario</h2>
+        <table class="tableRegister">
+            <tr class="filas">
+                <td class="title">Número: </td>
+                <td class="td-right">5</td>
+            </tr>
+            <tr>
+                <td class="title">Nombre endpoint: </td>
+                <td class="td-right">Eliminar Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">URI: </td>
+                <td class="td-right">localhost:3000/usuario/eliminar/:id</td>
+            </tr>
+            <tr>
+                <td class="title">Descripción: </td>
+                <td class="td-right">Endpoint para eliminar un usuario en la base de datos por su ID</td>
+            </tr>
+            <tr>
+                <td class="title">Verbo HTTP: </td>
+                <td class="td-right">DELETE</td>
+            </tr>
+            <tr>
+                <td class="title">Header: </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="title">Usuarios: </td>
+                <td class="td-right">Administrador, Usuario</td>
+            </tr>
+            <tr>
+                <td class="title">Request JSON: </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="title">Response: </td>
+                <td class="td-right">
+                   <li>
+                    <span>Correcto:</span> <br> <br>
+                    status: 200 <br><br>
+                   Body: <br>
+                   {<br>
+                    "message": "Usuario eliminado con éxito"<br>
+                    }
+                    <br> <br>
+                   </li>
+                      <li> <span>Incorrecto:</span> <br><br>
+                       status: 404 <br><br>
+                       Body: <br>
+                       {
+                        "message": "usuario no eliminado"
+                       }
+                      </li>
+                </td>
+            </tr>
+        </table>
+    </div>
+   </div>
+</body>
+</html>
