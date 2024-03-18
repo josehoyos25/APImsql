@@ -1,5 +1,23 @@
 import { json } from 'express';
 import { pool } from '../database/conexion.js';
+import multer from 'multer';
+
+
+
+const storage= multer.diskStorage(
+    {
+        destination: function(req, img, cb){
+            cb(null, './src/public/img');
+        },
+        filename: function(req, img, cb) {
+            cb(null, img.originalname);
+        }
+    });
+     const upload= multer
+    ({storage:storage});
+
+    export const CargarImagen= upload.single('imagen');
+
 
 export const listarJuegos = async(req,res)=> {
 
@@ -11,8 +29,9 @@ export const listarJuegos = async(req,res)=> {
 export const RegistrarJuego = async(req, res)=> {
     try {
     let {idjuego, nombre, descripcion, imagen, precio} =req.body;
+    let name_file = req.file.originalname;
     let sql = `insert into juegos (idjuego, nombre, descripcion, imagen, precio)
-               values ('${idjuego}', '${nombre}', '${descripcion}', '${imagen}', '${precio}')`;
+               values ('${idjuego}', '${nombre}', '${descripcion}', '${name_file}', '${precio}')`;
 
                let [rows] = await pool.query(sql);
                if(rows.affectedRows>0) {

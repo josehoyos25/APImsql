@@ -1,5 +1,6 @@
 import { json } from 'express';
 import { pool } from '../database/conexion.js';
+import { validationResult } from 'express-validator';
 
 export const listarUsuario = async(req,res)=> {
 
@@ -21,6 +22,10 @@ export const listarUsuario = async(req,res)=> {
 export const RegistrarUsuario = async(req,res)=> {
     try {
     let {idusuario, nombres, direccion, telefono, correo, rol, password} =req.body;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json(errors);
+    }
     let sql = `insert into usuarios (idusuario,nombres, direccion, telefono, correo, rol, password)
                values ('${idusuario}','${nombres}', '${direccion}', '${telefono}', '${correo}', '${rol}','${password}')`;
 
